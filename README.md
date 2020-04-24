@@ -22,9 +22,6 @@ aligned = "0.3.2"
 features = ["rt"]
 version = "0.6.1"
 ```
-
-* huga 3.5.2
-* hogehuga 1.0.2
  
 # Usage
  
