@@ -32,9 +32,17 @@ fn main() -> ! {
     }
     
     let mut tx_buf: Aligned<aligned::A4, [u8; 18]> = Aligned([0; 18]);
+    let mut led_index = 0;
     loop {
         // Make the cycle of the loop constant
         f3_util::adjust_cycle(&mut timer);
+
+        // show reflesh rate with LED
+        {
+            leds[led_index].off();
+            led_index = (led_index + 1) % 8;
+            leds[led_index].on();
+        }
  
         let m = sensor_modules.lsm303dlhc.mag().unwrap();
         let ar = sensor_modules.l3gd20.gyro().unwrap();
